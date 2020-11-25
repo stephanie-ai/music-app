@@ -1,0 +1,21 @@
+nav {
+    width: 100vw;
+    background-color: black;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgba(0, 153, 255, 0.863);
+}
+
+.current {
+    color: white;
+    font-weight: bolder;
+}
