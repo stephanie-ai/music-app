@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --watch --setupFiles ./src/test/setupTests.js",
     "start": "webpack-cli serve --mode development --config webpack.config.dev.js",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "coverage": "jest --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
   },
   "jest": {
     "moduleNameMapper": {
@@ -35,6 +36,7 @@
     "@babel/core": "^7.12.7",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
+    "dotenv": "^8.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0"

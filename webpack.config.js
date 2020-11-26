@@ -1,5 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv');
+
+const env = dotenv.config().parsed;
+
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 const ROOT_DIRECTORY = path.join(__dirname, './'); // the root of your project
 const PUBLIC_DIRECTORY = path.join(ROOT_DIRECTORY, 'public'); // the root of the frontend, i.e. html file
@@ -14,6 +23,9 @@ const config = {
   },
   mode: 'development', // tells webpack to use its built-in optimizations according to the mode
   resolve: {
+    alias: {
+      'path-to-regexp': path.resolve(__dirname, 'node_modules', 'react-router', 'node_modules', 'path-to-regexp')
+    },
     // instructions on how to resolve modules
     modules: [path.resolve('node_modules'), 'node_modules'], // tells webpack where to look for node_modules
   },
@@ -22,6 +34,7 @@ const config = {
     hints: false,
   },
   plugins: [
+    new webpack.DefinePlugin(envKeys),
     // plugins we are using to help with compiling
     new HtmlWebpackPlugin({
       // used to add the JavaScript code to the HTML

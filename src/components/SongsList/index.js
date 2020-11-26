@@ -6,24 +6,28 @@ class SongsList extends Component {
     state = {
         songs: [
             {
+                id: 1,
                 name: 'D.A.N.C.E',
                 release: 2007,
                 album: 'Cross',
                 art: 'http://1.bp.blogspot.com/_4yhITgIIZ5U/SV5ffR17Z9I/AAAAAAAAE7w/nCJhRLPOSi8/s400/justice_cross_cover.jpg',
             },
             {
+                id: 2,
                 name: 'Genesis',
                 release: 2007,
                 album: 'Cross',
                 art: 'http://1.bp.blogspot.com/_4yhITgIIZ5U/SV5ffR17Z9I/AAAAAAAAE7w/nCJhRLPOSi8/s400/justice_cross_cover.jpg',
             },
             {
+                id: 3,
                 name: 'Stress',
                 release: 2007,
                 album: 'Cross',
                 art: 'http://1.bp.blogspot.com/_4yhITgIIZ5U/SV5ffR17Z9I/AAAAAAAAE7w/nCJhRLPOSi8/s400/justice_cross_cover.jpg',
             },
             {
+                id: 4,
                 name: 'Phantom, Pt II',
                 release: 2007,
                 album: 'Cross',
@@ -55,6 +59,6 @@ class SongsList extends Component {
             </div>
         )
     }
-}
+};
 
 export default SongsList;
