@@ -5,9 +5,7 @@ import { withRouter } from 'react-router-dom';
 const SongCard = props => {
     const song = props.song || props.getSong(props.match.params.id);
 
-    const renderUnknown = <p>I'm sorry we don't have a {props.match.params.id} here.</p>
-
-    const renderSong = () => {
+        const renderSong = () => {
         <>
         <strong>{ song.artists.strArtist }</strong> { song.artists.strGenre }
         </>
@@ -15,7 +13,7 @@ const SongCard = props => {
 
     return (
         <article className="song">
-            { song ? renderSong() : renderUnknown }
+            { renderSong() }
         </article>
     )
 }
