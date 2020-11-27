@@ -1,6 +1,4 @@
-const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const dotenv = require('dotenv');
 
 const env = dotenv.config().parsed;
@@ -9,6 +7,9 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
   prev[`process.env.${next}`] = JSON.stringify(env[next]);
   return prev;
 }, {});
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ROOT_DIRECTORY = path.join(__dirname, './'); // the root of your project
 const PUBLIC_DIRECTORY = path.join(ROOT_DIRECTORY, 'public'); // the root of the frontend, i.e. html file

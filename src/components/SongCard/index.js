@@ -9,7 +9,7 @@ const SongCard = props => {
 
     const renderSong = () => {
         <>
-        <strong>{ song.strArtist }</strong> { song.strGenre }
+        <strong>{ song.artists.strArtist }</strong> { song.artists.strGenre }
         </>
     }
 
