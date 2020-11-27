@@ -4,8 +4,7 @@ import { SongCard } from '../../components';
 class Play extends Component {
 
     state = {
-        songs: [],
-        plays: 0
+        songs: []
     };
 
     componentDidMount(){
