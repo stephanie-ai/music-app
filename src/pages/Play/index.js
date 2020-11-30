@@ -4,12 +4,12 @@ import { SongCard } from '../../components';
 class Play extends Component {
     
     state = {
-        artistName: []
+        artist: {}
     };
 
     componentDidMount(){
         console.log('Did mount')
-        this.fetchSongs()
+        this.fetchSongs('coldplay')
     }
 
     componentDidUpdate(){
@@ -19,26 +19,31 @@ class Play extends Component {
 
     fetchSongs = (artistName) => {
         console.log('Fetching songs');
-        // let artistName= "abba";
-        fetch(`https://www.theaudiodb.com/api/v1/json/${process.env.REACT_APP_AUDIODB_API_KEY}/search.php?s=${artistName}`)
-            // .then(res = this.setState({ res.data }));
+        // let artistName= "coldplay";
+       fetch(`https://www.theaudiodb.com/api/v1/json/${process.env.REACT_APP_AUDIODB_API_KEY}/search.php?s=${artistName}`)
             .then(resp => resp.json())
-            .then(data => this.setState({ artistName: data }))
+            .then(data => this.setState({ artist: data.artists[0] }))
     }
 
     render() {
-        // console.log('Rendering')
-        // const renderSongs = this.state.artistName.map(i => <SongCard key={i.id} song={i} />)
-
-        // const renderSongs = this.state.artistName.map((idx) => <li key={idx}></li>)
+        console.log('Rendering')
+        // const renderSongs = this.state.artistName.map((artist, idx) => <div key={idx}> <SongCard /> {artist.idx} </div>)
 
         return (
             <>
             <h2>Play Songs</h2>
             {/* <p>{this.state.artistName}</p> */}
-            {/* <SongCard artistName={this.state.artistName} /> */}
             <section>
+
+                {this.state.artist.strArtist}
+                {this.state.artist.strBiographyEN}
                 {/* { this.fetchSongs() } */}
+                {/* {renderSongs} */}
+                {/* {
+                    this.state.artistName.map(artist => {
+                        <div key={artist.id}></div>
+                    })
+                } */}
             </section>
             </>
         )
@@ -48,6 +53,11 @@ class Play extends Component {
 //https://www.theaudiodb.com/api/v1/json/${process.env.REACT_APP_AUDIODB_API_KEY}/search.php?s=coldplay
 // https://www.theaudiodb.com/api/v1/json/${process.env.REACT_APP_AUDIODB_API_KEY}/search.php?s=${artistName}
 export default Play;
+
+{/* <SongCard artistName={this.state.artistName} /> */}
+// .then(res = this.setState({ res.data }));
+
+// const renderSongs = this.state.artistName.map(i => <SongCard key={i.id} song={i} />)
 
 // class Play extends Component {
 //     state = {
