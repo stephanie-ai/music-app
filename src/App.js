@@ -17,7 +17,7 @@ class App extends Component {
                 <Route path="/contact" component={Contact} />
 
                 {/* This way for component lifecycle */}
-                <Route path="/play" component={Play} />
+                <Route path="/playsongs" component={Play} />
                
               </Switch>
               <Footer />

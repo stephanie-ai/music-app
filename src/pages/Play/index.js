@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { SongCard } from '../../components';
 
 class Play extends Component {
-
+    
     state = {
-        songs: []
+        artistName: []
     };
 
     componentDidMount(){
@@ -16,22 +16,29 @@ class Play extends Component {
         console.log('Did update')
     }
     
-    fetchSongs = () => {
-        console.log('Fetching songs')
+
+    fetchSongs = (artistName) => {
+        console.log('Fetching songs');
+        // let artistName= "abba";
         fetch(`https://www.theaudiodb.com/api/v1/json/${process.env.REACT_APP_AUDIODB_API_KEY}/search.php?s=${artistName}`)
+            // .then(res = this.setState({ res.data }));
             .then(resp => resp.json())
-            .then(data => this.setState({ allSongs: data }))
+            .then(data => this.setState({ artistName: data }))
     }
 
     render() {
-        console.log('Rendering')
-        const renderSongs = this.state.allSongs.map(i => <SongCard key={i.id} song={i} />)
+        // console.log('Rendering')
+        // const renderSongs = this.state.artistName.map(i => <SongCard key={i.id} song={i} />)
+
+        // const renderSongs = this.state.artistName.map((idx) => <li key={idx}></li>)
 
         return (
             <>
             <h2>Play Songs</h2>
+            {/* <p>{this.state.artistName}</p> */}
+            {/* <SongCard artistName={this.state.artistName} /> */}
             <section>
-                { renderSongs }
+                {/* { this.fetchSongs() } */}
             </section>
             </>
         )
